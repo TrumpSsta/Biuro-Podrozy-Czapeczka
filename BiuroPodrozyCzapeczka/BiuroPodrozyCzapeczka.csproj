@@ -248,6 +248,7 @@
     <Compile Include="Models\Pracownik.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PracownikModel.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
