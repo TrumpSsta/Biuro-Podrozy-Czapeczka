@@ -1,0 +1,58 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Placowka
+
+@{
+    ViewBag.Title = "Właściwości";
+}
+
+<h2>Właściwości</h2>
+
+<div>
+    <h4>Placowka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Wojewodztwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wojewodztwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscPracownikow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscPracownikow)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPlacowki }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

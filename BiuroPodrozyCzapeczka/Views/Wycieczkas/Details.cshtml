@@ -1,0 +1,90 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Wycieczka
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Wycieczka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Panstwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Panstwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datawycieczki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datawycieczki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wydatki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wydatki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoniecWycieczki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoniecWycieczki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataWplaty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataWplaty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel.NazwaHotelu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel.NazwaHotelu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placowka.Wojewodztwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placowka.Wojewodztwo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdWycieczki }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

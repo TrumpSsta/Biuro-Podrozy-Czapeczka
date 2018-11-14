@@ -1,0 +1,58 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Zwiedzanie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zwiedzanie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaZwiedzania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaZwiedzania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZwiedzania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZwiedzania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Atrakcja.NazwaAtrakcji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atrakcja.NazwaAtrakcji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wycieczka.Panstwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wycieczka.Panstwo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdZwiedzania }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

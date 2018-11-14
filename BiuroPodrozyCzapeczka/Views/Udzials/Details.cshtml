@@ -1,0 +1,50 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Udzial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Udzial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscOsob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscOsob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wplacone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wplacone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Klient.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klient.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wycieczka.Panstwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wycieczka.Panstwo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUdzialu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

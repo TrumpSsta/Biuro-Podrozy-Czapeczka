@@ -1,0 +1,66 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Pracownik
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pracownik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pensja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pensja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placowka.Wojewodztwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placowka.Wojewodztwo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPracownika }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

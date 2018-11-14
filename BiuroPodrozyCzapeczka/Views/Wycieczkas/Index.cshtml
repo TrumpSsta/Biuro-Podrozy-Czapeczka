@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Wycieczka>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Panstwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datawycieczki)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wydatki)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KoniecWycieczki)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataWplaty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotel.NazwaHotelu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placowka.Wojewodztwo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Panstwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miasto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datawycieczki)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wydatki)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KoniecWycieczki)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataWplaty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotel.NazwaHotelu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placowka.Wojewodztwo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdWycieczki }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdWycieczki }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdWycieczki })
+        </td>
+    </tr>
+}
+
+</table>

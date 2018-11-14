@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Atrakcja>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NazwaAtrakcji)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdresAtrakcji)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CenaAtrakcji)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazwaAtrakcji)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdresAtrakcji)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenaAtrakcji)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAtrakcji }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAtrakcji }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAtrakcji })
+        </td>
+    </tr>
+}
+
+</table>

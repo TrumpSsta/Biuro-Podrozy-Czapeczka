@@ -1,0 +1,50 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Hotel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaHotelu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaHotelu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Panstwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Panstwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdHotelu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

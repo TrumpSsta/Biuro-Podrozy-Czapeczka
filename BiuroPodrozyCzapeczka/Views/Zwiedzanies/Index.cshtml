@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Zwiedzanie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CenaZwiedzania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataZwiedzania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Atrakcja.NazwaAtrakcji)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wycieczka.Panstwo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miasto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenaZwiedzania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataZwiedzania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Atrakcja.NazwaAtrakcji)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wycieczka.Panstwo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdZwiedzania }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdZwiedzania }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdZwiedzania })
+        </td>
+    </tr>
+}
+
+</table>

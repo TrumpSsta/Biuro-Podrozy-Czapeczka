@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiuroPodrozyCzapeczkaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Atrakcja">
+    <Key>
+      <PropertyRef Name="IdAtrakcji" />
+    </Key>
+    <Property Name="IdAtrakcji" Type="int" Nullable="false" />
+    <Property Name="NazwaAtrakcji" Type="varchar" MaxLength="90" Nullable="false" />
+    <Property Name="AdresAtrakcji" Type="varchar" MaxLength="90" Nullable="false" />
+    <Property Name="CenaAtrakcji" Type="int" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="IdHotelu" />
+    </Key>
+    <Property Name="IdHotelu" Type="int" Nullable="false" />
+    <Property Name="NazwaHotelu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Panstwo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Miasto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Adres" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Klient">
+    <Key>
+      <PropertyRef Name="IdKlienta" />
+    </Key>
+    <Property Name="IdKlienta" Type="int" Nullable="false" />
+    <Property Name="Imię" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Suma" Type="int" />
+  </EntityType>
+  <EntityType Name="Placowka">
+    <Key>
+      <PropertyRef Name="IdPlacowki" />
+    </Key>
+    <Property Name="IdPlacowki" Type="int" Nullable="false" />
+    <Property Name="Wojewodztwo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Miasto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Ulica" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Numer" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IloscPracownikow" Type="int" />
+  </EntityType>
+  <EntityType Name="Pokoj">
+    <Key>
+      <PropertyRef Name="IdPokoju" />
+    </Key>
+    <Property Name="IdPokoju" Type="int" Nullable="false" />
+    <Property Name="IdHotelu" Type="int" Nullable="false" />
+    <Property Name="Liczba" Type="int" Nullable="false" />
+    <Property Name="Cena" Type="int" />
+    <Property Name="Kaucja" Type="int" />
+    <Property Name="Rezerwacja" Type="bit" />
+    <Property Name="WolnyData" Type="date" />
+    <Property Name="KoniecWolnego" Type="date" />
+  </EntityType>
+  <EntityType Name="Pracownik">
+    <Key>
+      <PropertyRef Name="IdPracownika" />
+    </Key>
+    <Property Name="IdPracownika" Type="int" Nullable="false" />
+    <Property Name="IdPlacowki" Type="int" Nullable="false" />
+    <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="telefon" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="mail" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pensja" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Udzial">
+    <Key>
+      <PropertyRef Name="IdUdzialu" />
+    </Key>
+    <Property Name="IdUdzialu" Type="int" Nullable="false" />
+    <Property Name="IdWycieczki" Type="int" Nullable="false" />
+    <Property Name="IdKlienta" Type="int" Nullable="false" />
+    <Property Name="IloscOsob" Type="int" />
+    <Property Name="Wplacone" Type="int" />
+  </EntityType>
+  <EntityType Name="Wycieczka">
+    <Key>
+      <PropertyRef Name="IdWycieczki" />
+    </Key>
+    <Property Name="IdWycieczki" Type="int" Nullable="false" />
+    <Property Name="IdPlacowki" Type="int" Nullable="false" />
+    <Property Name="IdHotelu" Type="int" Nullable="false" />
+    <Property Name="Panstwo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Miasto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Datawycieczki" Type="date" />
+    <Property Name="Wydatki" Type="int" />
+    <Property Name="Cena" Type="int" />
+    <Property Name="KoniecWycieczki" Type="date" />
+    <Property Name="DataWplaty" Type="date" />
+  </EntityType>
+  <EntityType Name="Zwiedzanie">
+    <Key>
+      <PropertyRef Name="IdZwiedzania" />
+    </Key>
+    <Property Name="IdZwiedzania" Type="int" Nullable="false" />
+    <Property Name="IdWycieczki" Type="int" Nullable="false" />
+    <Property Name="IdAtrakcji" Type="int" Nullable="false" />
+    <Property Name="Miasto" Type="varchar" MaxLength="30" />
+    <Property Name="CenaZwiedzania" Type="int" />
+    <Property Name="DataZwiedzania" Type="date" />
+  </EntityType>
+  <Association Name="FK__Pokoj__IdHotelu__3E52440B">
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+    <End Role="Pokoj" Type="Self.Pokoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="IdHotelu" />
+      </Principal>
+      <Dependent Role="Pokoj">
+        <PropertyRef Name="IdHotelu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownik__IdPla__398D8EEE">
+    <End Role="Placowka" Type="Self.Placowka" Multiplicity="1" />
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Placowka">
+        <PropertyRef Name="IdPlacowki" />
+      </Principal>
+      <Dependent Role="Pracownik">
+        <PropertyRef Name="IdPlacowki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Udzial__IdKlient__4D94879B">
+    <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+    <End Role="Udzial" Type="Self.Udzial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klient">
+        <PropertyRef Name="IdKlienta" />
+      </Principal>
+      <Dependent Role="Udzial">
+        <PropertyRef Name="IdKlienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Udzial__IdWyciec__4CA06362">
+    <End Role="Wycieczka" Type="Self.Wycieczka" Multiplicity="1" />
+    <End Role="Udzial" Type="Self.Udzial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wycieczka">
+        <PropertyRef Name="IdWycieczki" />
+      </Principal>
+      <Dependent Role="Udzial">
+        <PropertyRef Name="IdWycieczki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wycieczka__IdHot__440B1D61">
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+    <End Role="Wycieczka" Type="Self.Wycieczka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="IdHotelu" />
+      </Principal>
+      <Dependent Role="Wycieczka">
+        <PropertyRef Name="IdHotelu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wycieczka__IdPla__4316F928">
+    <End Role="Placowka" Type="Self.Placowka" Multiplicity="1" />
+    <End Role="Wycieczka" Type="Self.Wycieczka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Placowka">
+        <PropertyRef Name="IdPlacowki" />
+      </Principal>
+      <Dependent Role="Wycieczka">
+        <PropertyRef Name="IdPlacowki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zwiedzani__IdAtr__49C3F6B7">
+    <End Role="Atrakcja" Type="Self.Atrakcja" Multiplicity="1" />
+    <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atrakcja">
+        <PropertyRef Name="IdAtrakcji" />
+      </Principal>
+      <Dependent Role="Zwiedzanie">
+        <PropertyRef Name="IdAtrakcji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zwiedzani__IdWyc__48CFD27E">
+    <End Role="Wycieczka" Type="Self.Wycieczka" Multiplicity="1" />
+    <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wycieczka">
+        <PropertyRef Name="IdWycieczki" />
+      </Principal>
+      <Dependent Role="Zwiedzanie">
+        <PropertyRef Name="IdWycieczki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiuroPodrozyCzapeczkaModelStoreContainer">
+    <EntitySet Name="Atrakcja" EntityType="Self.Atrakcja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Placowka" EntityType="Self.Placowka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pokoj" EntityType="Self.Pokoj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Udzial" EntityType="Self.Udzial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wycieczka" EntityType="Self.Wycieczka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zwiedzanie" EntityType="Self.Zwiedzanie" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Pokoj__IdHotelu__3E52440B" Association="Self.FK__Pokoj__IdHotelu__3E52440B">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="Pokoj" EntitySet="Pokoj" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownik__IdPla__398D8EEE" Association="Self.FK__Pracownik__IdPla__398D8EEE">
+      <End Role="Placowka" EntitySet="Placowka" />
+      <End Role="Pracownik" EntitySet="Pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Udzial__IdKlient__4D94879B" Association="Self.FK__Udzial__IdKlient__4D94879B">
+      <End Role="Klient" EntitySet="Klient" />
+      <End Role="Udzial" EntitySet="Udzial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Udzial__IdWyciec__4CA06362" Association="Self.FK__Udzial__IdWyciec__4CA06362">
+      <End Role="Wycieczka" EntitySet="Wycieczka" />
+      <End Role="Udzial" EntitySet="Udzial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wycieczka__IdHot__440B1D61" Association="Self.FK__Wycieczka__IdHot__440B1D61">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="Wycieczka" EntitySet="Wycieczka" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wycieczka__IdPla__4316F928" Association="Self.FK__Wycieczka__IdPla__4316F928">
+      <End Role="Placowka" EntitySet="Placowka" />
+      <End Role="Wycieczka" EntitySet="Wycieczka" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zwiedzani__IdAtr__49C3F6B7" Association="Self.FK__Zwiedzani__IdAtr__49C3F6B7">
+      <End Role="Atrakcja" EntitySet="Atrakcja" />
+      <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zwiedzani__IdWyc__48CFD27E" Association="Self.FK__Zwiedzani__IdWyc__48CFD27E">
+      <End Role="Wycieczka" EntitySet="Wycieczka" />
+      <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

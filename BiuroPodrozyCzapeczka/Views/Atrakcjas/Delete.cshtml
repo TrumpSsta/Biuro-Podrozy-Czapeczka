@@ -1,0 +1,48 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Atrakcja
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Atrakcja</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaAtrakcji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaAtrakcji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdresAtrakcji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdresAtrakcji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaAtrakcji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaAtrakcji)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

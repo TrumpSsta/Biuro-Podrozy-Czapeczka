@@ -1,0 +1,74 @@
+﻿@model BiuroPodrozyCzapeczka.Models.Pokoj
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pokoj</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Liczba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Liczba)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kaucja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kaucja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rezerwacja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rezerwacja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WolnyData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WolnyData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoniecWolnego)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoniecWolnego)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel.NazwaHotelu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel.NazwaHotelu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPokoju }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
