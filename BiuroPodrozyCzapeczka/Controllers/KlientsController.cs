@@ -46,15 +46,28 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdKlienta,Imię,Nazwisko,Mail,Telefon")] Klient klient)
+        public ActionResult Create([Bind(Include =
+            "IdKlienta,Imię,Nazwisko,Mail,Telefon")] Klient klient)
         {
+            string msg = string.Empty;
+            ViewBag.Exception = null;
             if (ModelState.IsValid)
             {
                 db.Klient.Add(klient);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    if (e.InnerException == null)
+                    { msg = "Zle dane"; }
+                    else
+                    { msg = e.InnerException.InnerException.Message; }
+                    ViewBag.Exception = msg;
+                }
                 return RedirectToAction("Index");
             }
-
             return View(klient);
         }
 

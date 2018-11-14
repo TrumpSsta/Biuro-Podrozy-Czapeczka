@@ -17,7 +17,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // GET: Zwiedzanies
         public ActionResult Index()
         {
-            var zwiedzanie = db.Zwiedzanie.Include(z => z.Atrakcja).Include(z => z.Wycieczka);
+            var zwiedzanie = db.Zwiedzanie.Include(z => z.Wycieczka);
             return View(zwiedzanie.ToList());
         }
 
@@ -39,7 +39,6 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // GET: Zwiedzanies/Create
         public ActionResult Create()
         {
-            ViewBag.IdAtrakcji = new SelectList(db.Atrakcja, "IdAtrakcji", "NazwaAtrakcji");
             ViewBag.IdWycieczki = new SelectList(db.Wycieczka, "IdWycieczki", "Panstwo");
             return View();
         }
@@ -49,7 +48,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdZwiedzania,IdWycieczki,IdAtrakcji,Miasto,CenaZwiedzania,DataZwiedzania")] Zwiedzanie zwiedzanie)
+        public ActionResult Create([Bind(Include = "IdZwiedzania,IdWycieczki,Miasto,CenaZwiedzania,DataZwiedzania")] Zwiedzanie zwiedzanie)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +57,6 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdAtrakcji = new SelectList(db.Atrakcja, "IdAtrakcji", "NazwaAtrakcji", zwiedzanie.IdAtrakcji);
             ViewBag.IdWycieczki = new SelectList(db.Wycieczka, "IdWycieczki", "Panstwo", zwiedzanie.IdWycieczki);
             return View(zwiedzanie);
         }
@@ -75,7 +73,6 @@ namespace BiuroPodrozyCzapeczka.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdAtrakcji = new SelectList(db.Atrakcja, "IdAtrakcji", "NazwaAtrakcji", zwiedzanie.IdAtrakcji);
             ViewBag.IdWycieczki = new SelectList(db.Wycieczka, "IdWycieczki", "Panstwo", zwiedzanie.IdWycieczki);
             return View(zwiedzanie);
         }
@@ -85,7 +82,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdZwiedzania,IdWycieczki,IdAtrakcji,Miasto,CenaZwiedzania,DataZwiedzania")] Zwiedzanie zwiedzanie)
+        public ActionResult Edit([Bind(Include = "IdZwiedzania,IdWycieczki,Miasto,CenaZwiedzania,DataZwiedzania")] Zwiedzanie zwiedzanie)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +90,6 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdAtrakcji = new SelectList(db.Atrakcja, "IdAtrakcji", "NazwaAtrakcji", zwiedzanie.IdAtrakcji);
             ViewBag.IdWycieczki = new SelectList(db.Wycieczka, "IdWycieczki", "Panstwo", zwiedzanie.IdWycieczki);
             return View(zwiedzanie);
         }
