@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Pracownik>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista pracowników";
 }
 
-<h2>Index</h2>
+<h2>Lista pracowników</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nowego pracownika", "Create")
 </p>
 <table class="table">
     <tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Placowka.Wojewodztwo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPracownika }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPracownika }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPracownika })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.IdPracownika }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.IdPracownika }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.IdPracownika })
         </td>
     </tr>
 }

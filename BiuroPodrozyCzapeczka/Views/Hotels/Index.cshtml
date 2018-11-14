@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Hotel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista hoteli";
 }
 
-<h2>Index</h2>
+<h2>Hotele</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj Hotel", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Adres)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdHotelu }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdHotelu }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdHotelu })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.IdHotelu }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.IdHotelu }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.IdHotelu })
         </td>
     </tr>
 }

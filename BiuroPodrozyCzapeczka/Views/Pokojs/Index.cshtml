@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Pokoj>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista pokojów";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Utwórz nowy pokój", "Create")
 </p>
 <table class="table">
     <tr>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.Hotel.NazwaHotelu)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPokoju }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPokoju }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPokoju })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.IdPokoju }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.IdPokoju }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.IdPokoju })
         </td>
     </tr>
 }

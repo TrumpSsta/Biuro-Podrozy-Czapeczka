@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Atrakcja>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista Atrakcji";
 }
 
-<h2>Index</h2>
+<h2>Atrakcje</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj atrakcje", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.CenaAtrakcji)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAtrakcji }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAtrakcji }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAtrakcji })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.IdAtrakcji }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.IdAtrakcji }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.IdAtrakcji })
         </td>
     </tr>
 }

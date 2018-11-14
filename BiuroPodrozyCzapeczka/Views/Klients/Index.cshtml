@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.Klient>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista Klientów";
 }
 
-<h2>Index</h2>
+<h2>Klienci</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj Klienta", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Telefon)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdKlienta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdKlienta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdKlienta })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.IdKlienta }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.IdKlienta }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.IdKlienta })
         </td>
     </tr>
 }

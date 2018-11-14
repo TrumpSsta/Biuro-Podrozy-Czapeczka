@@ -1,10 +1,10 @@
 ﻿@model BiuroPodrozyCzapeczka.Models.Wycieczka
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
     <h4>Wycieczka</h4>
@@ -85,6 +85,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdWycieczki }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.IdWycieczki }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>
