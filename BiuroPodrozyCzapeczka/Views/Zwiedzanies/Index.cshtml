@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.DataZwiedzania)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wycieczka.Panstwo)
+            @Html.DisplayNameFor(model => model.Wycieczka.IdWycieczki)
         </th>
         <th></th>
     </tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.DataZwiedzania)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Wycieczka.Panstwo)
+            @Html.DisplayFor(modelItem => item.Wycieczka.IdWycieczki)
         </td>
         <td>
             @Html.ActionLink("Edytuj", "Edit", new { id=item.IdZwiedzania }) |

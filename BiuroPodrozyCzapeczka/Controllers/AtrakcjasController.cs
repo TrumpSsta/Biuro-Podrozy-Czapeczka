@@ -17,7 +17,8 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // GET: Atrakcjas
         public ActionResult Index()
         {
-            return View(db.Atrakcja.ToList());
+            var atrakcja = db.Atrakcja.Include(a => a.Zwiedzanie);
+            return View(atrakcja.ToList());
         }
 
         // GET: Atrakcjas/Details/5
@@ -38,6 +39,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // GET: Atrakcjas/Create
         public ActionResult Create()
         {
+            ViewBag.IdZwiedzania = new SelectList(db.Zwiedzanie, "IdZwiedzania", "Miasto");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdAtrakcji,NazwaAtrakcji,AdresAtrakcji,CenaAtrakcji")] Atrakcja atrakcja)
+        public ActionResult Create([Bind(Include = "IdAtrakcji,NazwaAtrakcji,AdresAtrakcji,CenaAtrakcji,IdZwiedzania")] Atrakcja atrakcja)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.IdZwiedzania = new SelectList(db.Zwiedzanie, "IdZwiedzania", "Miasto", atrakcja.IdZwiedzania);
             return View(atrakcja);
         }
 
@@ -70,6 +73,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdZwiedzania = new SelectList(db.Zwiedzanie, "IdZwiedzania", "Miasto", atrakcja.IdZwiedzania);
             return View(atrakcja);
         }
 
@@ -78,7 +82,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdAtrakcji,NazwaAtrakcji,AdresAtrakcji,CenaAtrakcji")] Atrakcja atrakcja)
+        public ActionResult Edit([Bind(Include = "IdAtrakcji,NazwaAtrakcji,AdresAtrakcji,CenaAtrakcji,IdZwiedzania")] Atrakcja atrakcja)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdZwiedzania = new SelectList(db.Zwiedzanie, "IdZwiedzania", "Miasto", atrakcja.IdZwiedzania);
             return View(atrakcja);
         }
 

@@ -382,16 +382,16 @@
     <Content Include="Views\Udzials\Details.cshtml" />
     <Content Include="Views\Udzials\Edit.cshtml" />
     <Content Include="Views\Udzials\Index.cshtml" />
-    <Content Include="Views\Atrakcjas\Create.cshtml" />
-    <Content Include="Views\Atrakcjas\Delete.cshtml" />
-    <Content Include="Views\Atrakcjas\Details.cshtml" />
-    <Content Include="Views\Atrakcjas\Edit.cshtml" />
-    <Content Include="Views\Atrakcjas\Index.cshtml" />
     <Content Include="Views\Zwiedzanies\Create.cshtml" />
     <Content Include="Views\Zwiedzanies\Delete.cshtml" />
     <Content Include="Views\Zwiedzanies\Details.cshtml" />
     <Content Include="Views\Zwiedzanies\Edit.cshtml" />
     <Content Include="Views\Zwiedzanies\Index.cshtml" />
+    <Content Include="Views\Atrakcjas\Create.cshtml" />
+    <Content Include="Views\Atrakcjas\Delete.cshtml" />
+    <Content Include="Views\Atrakcjas\Details.cshtml" />
+    <Content Include="Views\Atrakcjas\Edit.cshtml" />
+    <Content Include="Views\Atrakcjas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
