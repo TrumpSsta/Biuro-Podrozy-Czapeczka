@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Atrakcja">
       <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.Atrakcja">
         <MappingFragment StoreEntitySet="Atrakcja">
+          <ScalarProperty Name="IdZwiedzania" ColumnName="IdZwiedzania" />
           <ScalarProperty Name="IdAtrakcji" ColumnName="IdAtrakcji" />
           <ScalarProperty Name="NazwaAtrakcji" ColumnName="NazwaAtrakcji" />
           <ScalarProperty Name="AdresAtrakcji" ColumnName="AdresAtrakcji" />
@@ -105,7 +106,6 @@
         <MappingFragment StoreEntitySet="Zwiedzanie">
           <ScalarProperty Name="IdZwiedzania" ColumnName="IdZwiedzania" />
           <ScalarProperty Name="IdWycieczki" ColumnName="IdWycieczki" />
-          <ScalarProperty Name="IdAtrakcji" ColumnName="IdAtrakcji" />
           <ScalarProperty Name="Miasto" ColumnName="Miasto" />
           <ScalarProperty Name="CenaZwiedzania" ColumnName="CenaZwiedzania" />
           <ScalarProperty Name="DataZwiedzania" ColumnName="DataZwiedzania" />

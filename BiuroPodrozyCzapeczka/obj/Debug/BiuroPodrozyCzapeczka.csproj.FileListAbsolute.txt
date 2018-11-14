@@ -80,3 +80,6 @@ c:\users\komp\documents\visual studio 2015\Projects\BiuroPodrozyCzapeczka\BiuroP
 c:\users\komp\documents\visual studio 2015\Projects\BiuroPodrozyCzapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.dll
 c:\users\komp\documents\visual studio 2015\Projects\BiuroPodrozyCzapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.pdb
 C:\Users\komp\Documents\Visual Studio 2015\Projects\BiuroPodrozyCzapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.csprojResolveAssemblyReference.cache
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.csprojResolveAssemblyReference.cache
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.pdb

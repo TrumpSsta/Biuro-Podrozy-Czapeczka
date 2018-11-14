@@ -8,6 +8,7 @@
     <Property Name="NazwaAtrakcji" Type="varchar" MaxLength="90" Nullable="false" />
     <Property Name="AdresAtrakcji" Type="varchar" MaxLength="90" Nullable="false" />
     <Property Name="CenaAtrakcji" Type="int" />
+    <Property Name="IdZwiedzania" Type="int" />
   </EntityType>
   <EntityType Name="Hotel">
     <Key>
@@ -107,11 +108,22 @@
     </Key>
     <Property Name="IdZwiedzania" Type="int" Nullable="false" />
     <Property Name="IdWycieczki" Type="int" Nullable="false" />
-    <Property Name="IdAtrakcji" Type="int" Nullable="false" />
     <Property Name="Miasto" Type="varchar" MaxLength="30" />
     <Property Name="CenaZwiedzania" Type="int" />
     <Property Name="DataZwiedzania" Type="date" />
   </EntityType>
+  <Association Name="FK__Atrakcja__IdZwie__59063A47">
+    <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="0..1" />
+    <End Role="Atrakcja" Type="Self.Atrakcja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zwiedzanie">
+        <PropertyRef Name="IdZwiedzania" />
+      </Principal>
+      <Dependent Role="Atrakcja">
+        <PropertyRef Name="IdZwiedzania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Pokoj__IdHotelu__3E52440B">
     <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
     <End Role="Pokoj" Type="Self.Pokoj" Multiplicity="*" />
@@ -184,18 +196,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Zwiedzani__IdAtr__49C3F6B7">
-    <End Role="Atrakcja" Type="Self.Atrakcja" Multiplicity="1" />
-    <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Atrakcja">
-        <PropertyRef Name="IdAtrakcji" />
-      </Principal>
-      <Dependent Role="Zwiedzanie">
-        <PropertyRef Name="IdAtrakcji" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Zwiedzani__IdWyc__48CFD27E">
     <End Role="Wycieczka" Type="Self.Wycieczka" Multiplicity="1" />
     <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="*" />
@@ -219,6 +219,10 @@
     <EntitySet Name="Udzial" EntityType="Self.Udzial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Wycieczka" EntityType="Self.Wycieczka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zwiedzanie" EntityType="Self.Zwiedzanie" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Atrakcja__IdZwie__59063A47" Association="Self.FK__Atrakcja__IdZwie__59063A47">
+      <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
+      <End Role="Atrakcja" EntitySet="Atrakcja" />
+    </AssociationSet>
     <AssociationSet Name="FK__Pokoj__IdHotelu__3E52440B" Association="Self.FK__Pokoj__IdHotelu__3E52440B">
       <End Role="Hotel" EntitySet="Hotel" />
       <End Role="Pokoj" EntitySet="Pokoj" />
@@ -242,10 +246,6 @@
     <AssociationSet Name="FK__Wycieczka__IdPla__4316F928" Association="Self.FK__Wycieczka__IdPla__4316F928">
       <End Role="Placowka" EntitySet="Placowka" />
       <End Role="Wycieczka" EntitySet="Wycieczka" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Zwiedzani__IdAtr__49C3F6B7" Association="Self.FK__Zwiedzani__IdAtr__49C3F6B7">
-      <End Role="Atrakcja" EntitySet="Atrakcja" />
-      <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
     </AssociationSet>
     <AssociationSet Name="FK__Zwiedzani__IdWyc__48CFD27E" Association="Self.FK__Zwiedzani__IdWyc__48CFD27E">
       <End Role="Wycieczka" EntitySet="Wycieczka" />
