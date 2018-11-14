@@ -17,8 +17,8 @@ namespace BiuroPodrozyCzapeczka.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Wycieczka()
         {
-            this.Udzial = new HashSet<Udzial>();
             this.Zwiedzanie = new HashSet<Zwiedzanie>();
+            this.Udzial = new HashSet<Udzial>();
         }
     
         public int IdWycieczki { get; set; }
@@ -32,11 +32,11 @@ namespace BiuroPodrozyCzapeczka.Models
         public Nullable<System.DateTime> KoniecWycieczki { get; set; }
         public Nullable<System.DateTime> DataWplaty { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zwiedzanie> Zwiedzanie { get; set; }
         public virtual Hotel Hotel { get; set; }
         public virtual Placowka Placowka { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Udzial> Udzial { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zwiedzanie> Zwiedzanie { get; set; }
     }
 }

@@ -391,10 +391,10 @@
           <Property Name="Datawycieczki" Type="DateTime" Precision="0" />
           <Property Name="Wydatki" Type="Int32" />
           <Property Name="Cena" Type="Int32" />
+          <NavigationProperty Name="Zwiedzanie" Relationship="Self.FK__Zwiedzani__IdWyc__48CFD27E" FromRole="Wycieczka" ToRole="Zwiedzanie" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK__Wycieczka__IdHot__440B1D61" FromRole="Wycieczka" ToRole="Hotel" />
           <NavigationProperty Name="Placowka" Relationship="Self.FK__Wycieczka__IdPla__4316F928" FromRole="Wycieczka" ToRole="Placowka" />
           <NavigationProperty Name="Udzial" Relationship="Self.FK__Udzial__IdWyciec__4CA06362" FromRole="Wycieczka" ToRole="Udzial" />
-          <NavigationProperty Name="Zwiedzanie" Relationship="Self.FK__Zwiedzani__IdWyc__48CFD27E" FromRole="Wycieczka" ToRole="Zwiedzanie" />
           <Property Name="KoniecWycieczki" Type="DateTime" Precision="0" />
           <Property Name="DataWplaty" Type="DateTime" Precision="0" />
         </EntityType>
