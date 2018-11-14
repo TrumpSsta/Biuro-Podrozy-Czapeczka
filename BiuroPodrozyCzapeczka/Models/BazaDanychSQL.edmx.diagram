@@ -13,8 +13,7 @@
         <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.Pracownik" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.Udzial" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.Wycieczka" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.Zwiedzanie" Width="1.5" PointX="11.25" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Zwiedzani__IdAtr__49C3F6B7" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.Zwiedzanie" Width="1.5" PointX="11.25" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Pokoj__IdHotelu__3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Wycieczka__IdHot__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Udzial__IdKlient__4D94879B" ManuallyRouted="false" />
@@ -23,6 +22,7 @@
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Udzial__IdWyciec__4CA06362" ManuallyRouted="false" />
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Zwiedzani__IdWyc__48CFD27E" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Atrakcja__IdZwie__59063A47" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

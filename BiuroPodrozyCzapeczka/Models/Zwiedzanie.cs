@@ -14,14 +14,20 @@ namespace BiuroPodrozyCzapeczka.Models
     
     public partial class Zwiedzanie
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Zwiedzanie()
+        {
+            this.Atrakcja = new HashSet<Atrakcja>();
+        }
+    
         public int IdZwiedzania { get; set; }
         public int IdWycieczki { get; set; }
-        public int IdAtrakcji { get; set; }
         public string Miasto { get; set; }
         public Nullable<int> CenaZwiedzania { get; set; }
         public Nullable<System.DateTime> DataZwiedzania { get; set; }
     
-        public virtual Atrakcja Atrakcja { get; set; }
         public virtual Wycieczka Wycieczka { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Atrakcja> Atrakcja { get; set; }
     }
 }

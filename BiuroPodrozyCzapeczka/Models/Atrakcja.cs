@@ -14,18 +14,12 @@ namespace BiuroPodrozyCzapeczka.Models
     
     public partial class Atrakcja
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Atrakcja()
-        {
-            this.Zwiedzanie = new HashSet<Zwiedzanie>();
-        }
-    
         public int IdAtrakcji { get; set; }
         public string NazwaAtrakcji { get; set; }
         public string AdresAtrakcji { get; set; }
         public Nullable<int> CenaAtrakcji { get; set; }
+        public Nullable<int> IdZwiedzania { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zwiedzanie> Zwiedzanie { get; set; }
+        public virtual Zwiedzanie Zwiedzanie { get; set; }
     }
 }
