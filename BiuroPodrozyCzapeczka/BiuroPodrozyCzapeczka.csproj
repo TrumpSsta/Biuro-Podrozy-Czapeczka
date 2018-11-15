@@ -216,6 +216,7 @@
     <Compile Include="Models\Atrakcja.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AtrakcjasViewModel.cs" />
     <Compile Include="Models\BazaDanychSQL.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,10 +235,12 @@
     <Compile Include="Models\Hotel.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hotels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Klient.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\KlientsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Placowka.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
