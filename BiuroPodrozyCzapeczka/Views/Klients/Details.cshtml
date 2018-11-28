@@ -1,5 +1,4 @@
-﻿@model BiuroPodrozyCzapeczka.Models.Klient
-
+﻿@model BiuroPodrozyCzapeczka.Models.KlientsViewModel
 @{
     ViewBag.Title = "Szczegóły";
 }
@@ -41,9 +40,17 @@
         <dd>
             @Html.DisplayFor(model => model.Telefon)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Suma)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Suma)
+        </dd>
     </dl>
 </div>
+
+
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.IdKlienta }) |
     @Html.ActionLink("Powrót", "Index")

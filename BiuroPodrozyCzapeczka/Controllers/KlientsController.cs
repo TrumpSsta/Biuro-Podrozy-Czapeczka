@@ -47,7 +47,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include =
-            "IdKlienta,Imię,Nazwisko,Mail,Telefon")] Klient klient)
+            "IdKlienta,Imię,Nazwisko,Mail,Telefon,Suma")] Klient klient)
         {
             string msg = string.Empty;
             ViewBag.Exception = null;
@@ -65,6 +65,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
                     else
                     { msg = e.InnerException.InnerException.Message; }
                     ViewBag.Exception = msg;
+                    return View(klient);
                 }
                 return RedirectToAction("Index");
             }
@@ -91,7 +92,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdKlienta,Imię,Nazwisko,Mail,Telefon")] Klient klient)
+        public ActionResult Edit([Bind(Include = "IdKlienta,Imię,Nazwisko,Mail,Telefon,Suma")] Klient klient)
         {
             if (ModelState.IsValid)
             {

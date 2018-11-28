@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Telefon)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suma)
+        </th>
         <th></th>
     </tr>
 
@@ -38,7 +41,10 @@
             @Html.DisplayFor(modelItem => item.Mail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Telefon)
+            @Html.DisplayFor(model => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suma)
         </td>
         <td>
             @Html.ActionLink("Edytuj", "Edit", new { id=item.IdKlienta }) |
