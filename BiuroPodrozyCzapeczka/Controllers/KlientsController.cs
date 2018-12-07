@@ -16,7 +16,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
 
         // GET: Klients
         public ActionResult Index()
-        {
+        {   
             return View(db.Klient.ToList());
         }
 
@@ -33,6 +33,24 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 return HttpNotFound();
             }
             return View(klient);
+        }
+        public ActionResult AdvencedDetails(int? id = 1)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Klient klient = db.Klient.Find(id);
+            if (klient == null)
+            {
+                return HttpNotFound();
+            }
+           
+            var tuple = new Tuple<Klient, List<Udzial>, List<Wycieczka>>(klient, db.Udzial.ToList(), db.Wycieczka.ToList());
+            return View(tuple);
+
+
+            
         }
 
         // GET: Klients/Create

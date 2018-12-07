@@ -146,6 +146,16 @@ svg:not(:root) {
 figure {
   margin: 0;
 }
+.table-wrapper{
+   background-image: url(../Content/background-calm-clouds-747964.jpg)
+  /* if the image repeats nicely, tile it, using background-repeat */
+  background-repeat: repeat; /* repeat-x, repeat-y and no-repeat are options */
+  /* alternatively, you could stretch it to fit the div, using background-size */
+   background-repeat: no-repeat;
+background-size: contain, cover;
+opacity: 0.5;
+
+}
 
 fieldset {
   padding: 0.35em 0.625em 0.75em;
