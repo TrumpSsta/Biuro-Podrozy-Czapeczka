@@ -8,6 +8,7 @@ namespace BiuroPodrozyCzapeczka.Models
 {
     public class KlientsViewModel
     {
+        [Key]
         [Required]
         public int IdKlienta { get; set; }
 

@@ -34,7 +34,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
             }
             return View(klient);
         }
-        public ActionResult AdvencedDetails(int? id = 1)
+        public ActionResult AdvencedDetails(int? id )
         {
             if (id == null)
             {
@@ -51,6 +51,26 @@ namespace BiuroPodrozyCzapeczka.Controllers
 
 
             
+        }
+        public ActionResult Tranzakcja(int? id )
+        {
+            ViewBag.IdKlienta = new SelectList(db.Klient, "IdKlienta", "Imię");
+            ViewBag.IdWycieczki = new SelectList(db.Wycieczka, "IdWycieczki", "Panstwo");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Klient klient = db.Klient.Find(id);
+            if (klient == null)
+            {
+                return HttpNotFound();
+            }
+
+            var tuple = new Tuple<Klient>(klient) ;
+            return View(tuple);
+
+
+
         }
 
         // GET: Klients/Create

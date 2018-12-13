@@ -5,16 +5,24 @@ using System.Web;
 
 namespace BiuroPodrozyCzapeczka.Models
 {
-    public class KlientUdzialWycieczkaViewModel
+    public class KlientUdzialViewModel
     {
-        public Klient Klient { get; set; }
-        public List<Udzial> Udzial { get; set; }
-        public List<Wycieczka> Wycieczka { get; set; }
-        public KlientUdzialWycieczkaViewModel(Klient Klient,List<Udzial>Udzial,List<Wycieczka>Wycieczka)
+        public IEnumerable<Klient> Klient { get; set; }
+        public Klient Klient1 { get; set; }
+        public IEnumerable<Udzial> Udzial { get; set; }
+        public Udzial Udzial1 { get; set; }
+        public KlientUdzialViewModel(IEnumerable<Klient> Klient, IEnumerable<Udzial> Udzial)
         {
             this.Klient = Klient;
             this.Udzial = Udzial;
-            this.Wycieczka = Wycieczka;
+          
+        }
+
+        public KlientUdzialViewModel()
+        {
+        }
+        public KlientUdzialViewModel(int i)
+        {
         }
     }
 }

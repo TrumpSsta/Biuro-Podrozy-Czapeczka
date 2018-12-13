@@ -1,0 +1,55 @@
+﻿@model BiuroPodrozyCzapeczka.Models.KlientUdzialViewModel
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Display("Imię")
+        </th>
+        <th>
+            @Html.Display("Nazwisko")
+        </th>
+        <th>
+            @Html.Display("Mail")
+        </th>
+        <th>
+            @Html.Display("Telefon")
+        </th>
+        <th>
+            @Html.Display("Suma")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Klient)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imię)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suma)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.IdKlienta }) |
+                @Html.ActionLink("Szczegóły", "AdvencedDetails", new { id = item.IdKlienta }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.IdKlienta })
+                @Html.ActionLink("Transakcja", "Transakcja", new { id = item.IdKlienta })
+            </td>
+        </tr>
+    }
+
+</table>
+

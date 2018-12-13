@@ -8,6 +8,7 @@ namespace BiuroPodrozyCzapeczka.Models
 {
     public class Hotels
     {
+        [Key]
         [Required]
         public int IdHotelu { get; set; }
 

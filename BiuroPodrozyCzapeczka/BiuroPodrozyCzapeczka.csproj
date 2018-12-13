@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\KlientsController.cs" />
+    <Compile Include="Controllers\KlientUdzialController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlacowkasController.cs" />
     <Compile Include="Controllers\PokojsController.cs" />
@@ -403,6 +404,8 @@
     <Content Include="Views\Atrakcjas\Edit.cshtml" />
     <Content Include="Views\Atrakcjas\Index.cshtml" />
     <Content Include="Views\Klients\AdvencedDetails.cshtml" />
+    <Content Include="Views\KlientUdzial\Index.cshtml" />
+    <Content Include="Views\KlientUdzial\Transakcja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,6 +8,7 @@ namespace BiuroPodrozyCzapeczka.Models
 {
     public class AtrakcjasCreateViewModel
     {
+        [Key]
         [Required]
         public int IdAtrakcji { get; set; }
 

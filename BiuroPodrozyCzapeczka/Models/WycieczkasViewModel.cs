@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace BiuroPodrozyCzapeczka.Models
 {
     public class WycieczkasViewModel
     {
+        [Key]
         public int IdWycieczki { get; set; }
         public int IdPlacówki { get; set; }
         public int IdHotelu { get; set; }
