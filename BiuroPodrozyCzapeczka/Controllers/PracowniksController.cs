@@ -37,7 +37,11 @@ namespace BiuroPodrozyCzapeczka.Controllers
             }
             return View(pracownik);
         }
-
+        public ActionResult Biedacy()
+        {
+            var wycieczka = db.BiedniPracownicy;
+            return View(wycieczka.ToList());
+        }
         // GET: Pracowniks/Create
         public ActionResult Create()
         {

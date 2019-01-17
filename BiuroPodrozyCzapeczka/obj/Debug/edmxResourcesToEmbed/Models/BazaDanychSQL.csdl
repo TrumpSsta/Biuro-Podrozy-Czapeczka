@@ -34,6 +34,7 @@
     <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Udzial" Relationship="Self.FK__Udzial__IdKlient__4D94879B" FromRole="Klient" ToRole="Udzial" />
     <Property Name="Suma" Type="Int32" />
+    <Property Name="Rabat" Type="Int32" />
   </EntityType>
   <EntityType Name="Placowka">
     <Key>
@@ -275,6 +276,14 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="NajczestszePanstwo" EntityType="BiuroPodrozyCzapeczkaModel.NajczestszePanstwo" />
+    <EntitySet Name="BiedniPracownicy" EntityType="BiuroPodrozyCzapeczkaModel.BiedniPracownicy" />
+    <FunctionImport Name="PracownikRaport" ReturnType="Collection(BiuroPodrozyCzapeczkaModel.PracownikRaport_Result)">
+      <Parameter Name="PlacowkaID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="zestawWycieczek" ReturnType="Collection(BiuroPodrozyCzapeczkaModel.zestawWycieczek_Result)">
+      <Parameter Name="SzukaneMiasto" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -308,5 +317,51 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="NajczestszePanstwo">
+    <Key>
+      <PropertyRef Name="Panstwo" />
+    </Key>
+    <Property Name="Panstwo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="najczestszePanstwo1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BiedniPracownicy">
+    <Key>
+      <PropertyRef Name="IdPracownika" />
+      <PropertyRef Name="IdPlacowki" />
+      <PropertyRef Name="Imie" />
+      <PropertyRef Name="Nazwisko" />
+      <PropertyRef Name="telefon" />
+      <PropertyRef Name="mail" />
+      <PropertyRef Name="pensja" />
+    </Key>
+    <Property Name="IdPracownika" Type="Int32" Nullable="false" />
+    <Property Name="IdPlacowki" Type="Int32" Nullable="false" />
+    <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefon" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="pensja" Type="Int32" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="PracownikRaport_Result">
+    <Property Type="Int32" Name="IdPracownika" Nullable="false" />
+    <Property Type="Int32" Name="IdPlacowki" Nullable="false" />
+    <Property Type="String" Name="Imie" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="telefon" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="mail" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="pensja" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="zestawWycieczek_Result">
+    <Property Type="Int32" Name="IdWycieczki" Nullable="false" />
+    <Property Type="Int32" Name="IdPlacowki" Nullable="false" />
+    <Property Type="Int32" Name="IdHotelu" Nullable="false" />
+    <Property Type="String" Name="Panstwo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Miasto" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="Datawycieczki" Nullable="true" />
+    <Property Type="Int32" Name="Wydatki" Nullable="true" />
+    <Property Type="Int32" Name="Cena" Nullable="true" />
+    <Property Type="DateTime" Name="KoniecWycieczki" Nullable="true" />
+    <Property Type="DateTime" Name="DataWplaty" Nullable="true" />
   </ComplexType>
 </Schema>

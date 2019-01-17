@@ -264,6 +264,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaDanychSQL.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\BiedniPracownicy.cs">
+      <DependentUpon>BazaDanychSQL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Hotel.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
@@ -276,6 +279,9 @@
     <Compile Include="Models\KlientUdzialWycieczkaViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MongoDB.cs" />
+    <Compile Include="Models\NajczestszePanstwo.cs">
+      <DependentUpon>BazaDanychSQL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Placowka.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
@@ -286,6 +292,9 @@
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PracownikModel.cs" />
+    <Compile Include="Models\PracownikRaport_Result.cs">
+      <DependentUpon>BazaDanychSQL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RaportsController.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
@@ -305,6 +314,9 @@
     </Compile>
     <Compile Include="Models\WycieczkaHotel.cs" />
     <Compile Include="Models\WycieczkasViewModel.cs" />
+    <Compile Include="Models\zestawWycieczek_Result.cs">
+      <DependentUpon>BazaDanychSQL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Zwiedzanie.cs">
       <DependentUpon>BazaDanychSQL.tt</DependentUpon>
     </Compile>
@@ -445,6 +457,8 @@
     <Content Include="Views\Raports\Index.cshtml" />
     <Content Include="Views\Hotels\Miasta.cshtml" />
     <Content Include="Views\Wycieczkas\Wycieczki_Raport.cshtml" />
+    <Content Include="Views\Wycieczkas\NajczestszePanstwa.cshtml" />
+    <Content Include="Views\Pracowniks\Biedacy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

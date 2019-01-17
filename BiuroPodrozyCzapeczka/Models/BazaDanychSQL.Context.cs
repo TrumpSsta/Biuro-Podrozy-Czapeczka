@@ -37,6 +37,8 @@ namespace BiuroPodrozyCzapeczka.Models
         public virtual DbSet<Wycieczka> Wycieczka { get; set; }
         public virtual DbSet<Zwiedzanie> Zwiedzanie { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<NajczestszePanstwo> NajczestszePanstwo { get; set; }
+        public virtual DbSet<BiedniPracownicy> BiedniPracownicy { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -139,6 +141,24 @@ namespace BiuroPodrozyCzapeczka.Models
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<PracownikRaport_Result> PracownikRaport(Nullable<int> placowkaID)
+        {
+            var placowkaIDParameter = placowkaID.HasValue ?
+                new ObjectParameter("PlacowkaID", placowkaID) :
+                new ObjectParameter("PlacowkaID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PracownikRaport_Result>("PracownikRaport", placowkaIDParameter);
+        }
+    
+        public virtual ObjectResult<zestawWycieczek_Result> zestawWycieczek(string szukaneMiasto)
+        {
+            var szukaneMiastoParameter = szukaneMiasto != null ?
+                new ObjectParameter("SzukaneMiasto", szukaneMiasto) :
+                new ObjectParameter("SzukaneMiasto", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<zestawWycieczek_Result>("zestawWycieczek", szukaneMiastoParameter);
         }
     }
 }

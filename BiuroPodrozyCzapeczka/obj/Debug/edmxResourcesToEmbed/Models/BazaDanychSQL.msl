@@ -26,6 +26,7 @@
     <EntitySetMapping Name="Klient">
       <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.Klient">
         <MappingFragment StoreEntitySet="Klient">
+          <ScalarProperty Name="Rabat" ColumnName="Rabat" />
           <ScalarProperty Name="Suma" ColumnName="Suma" />
           <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
           <ScalarProperty Name="Imię" ColumnName="Imię" />
@@ -147,5 +148,55 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BiuroPodrozyCzapeczkaModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BiuroPodrozyCzapeczkaModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="NajczestszePanstwo">
+      <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.NajczestszePanstwo">
+        <MappingFragment StoreEntitySet="NajczestszePanstwo">
+          <ScalarProperty Name="najczestszePanstwo1" ColumnName="najczestszePanstwo" />
+          <ScalarProperty Name="Panstwo" ColumnName="Panstwo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiedniPracownicy">
+      <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.BiedniPracownicy">
+        <MappingFragment StoreEntitySet="BiedniPracownicy">
+          <ScalarProperty Name="pensja" ColumnName="pensja" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+          <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PracownikRaport" FunctionName="BiuroPodrozyCzapeczkaModel.Store.PracownikRaport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.PracownikRaport_Result">
+          <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+          <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="pensja" ColumnName="pensja" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="zestawWycieczek" FunctionName="BiuroPodrozyCzapeczkaModel.Store.zestawWycieczek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.zestawWycieczek_Result">
+          <ScalarProperty Name="IdWycieczki" ColumnName="IdWycieczki" />
+          <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+          <ScalarProperty Name="IdHotelu" ColumnName="IdHotelu" />
+          <ScalarProperty Name="Panstwo" ColumnName="Panstwo" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Datawycieczki" ColumnName="Datawycieczki" />
+          <ScalarProperty Name="Wydatki" ColumnName="Wydatki" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="KoniecWycieczki" ColumnName="KoniecWycieczki" />
+          <ScalarProperty Name="DataWplaty" ColumnName="DataWplaty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

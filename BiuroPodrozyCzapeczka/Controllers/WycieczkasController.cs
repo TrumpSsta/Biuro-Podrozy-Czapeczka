@@ -96,7 +96,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
                                   idp= w.Panstwo,
                                   c=w.Cena
                                  
-    }).ToList();
+    }).Distinct().ToList();
 
             var model = new List<WycieczkaHotel>();
             foreach (var element in wycieczka)
@@ -115,6 +115,11 @@ namespace BiuroPodrozyCzapeczka.Controllers
 
             
             return View(model);
+        }
+        public ActionResult NajczestszePanstwa()
+        {
+            var wycieczka = db.NajczestszePanstwo;
+            return View(wycieczka.ToList());
         }
         // POST: Wycieczkas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

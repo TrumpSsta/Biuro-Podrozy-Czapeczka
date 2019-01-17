@@ -26,6 +26,7 @@ namespace BiuroPodrozyCzapeczka.Models
         public string Mail { get; set; }
         public string Telefon { get; set; }
         public Nullable<int> Suma { get; set; }
+        public Nullable<int> Rabat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Udzial> Udzial { get; set; }

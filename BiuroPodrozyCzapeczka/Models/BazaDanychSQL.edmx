@@ -35,6 +35,7 @@
           <Property Name="Mail" Type="varchar" MaxLength="50" />
           <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Suma" Type="int" />
+          <Property Name="Rabat" Type="int" />
         </EntityType>
         <EntityType Name="Placowka">
           <Key>
@@ -116,6 +117,35 @@
           <Property Name="Miasto" Type="varchar" MaxLength="30" />
           <Property Name="CenaZwiedzania" Type="int" />
           <Property Name="DataZwiedzania" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BiuroPodrozyCzapeczka.dbo.BiedniPracownicy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BiedniPracownicy">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+            <PropertyRef Name="IdPlacowki" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="telefon" />
+            <PropertyRef Name="mail" />
+            <PropertyRef Name="pensja" />
+          </Key>
+          <Property Name="IdPracownika" Type="int" Nullable="false" />
+          <Property Name="IdPlacowki" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="telefon" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pensja" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BiuroPodrozyCzapeczka.dbo.NajczestszePanstwo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NajczestszePanstwo">
+          <Key>
+            <PropertyRef Name="Panstwo" />
+          </Key>
+          <Property Name="Panstwo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="najczestszePanstwo" Type="int" />
         </EntityType>
         <Association Name="FK__Atrakcja__IdZwie__59063A47">
           <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="0..1" />
@@ -214,6 +244,9 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="PracownikRaport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlacowkaID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -244,6 +277,9 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="zestawWycieczek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SzukaneMiasto" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="BiuroPodrozyCzapeczkaModelStoreContainer">
           <EntitySet Name="Atrakcja" EntityType="Self.Atrakcja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
@@ -255,6 +291,23 @@
           <EntitySet Name="Udzial" EntityType="Self.Udzial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wycieczka" EntityType="Self.Wycieczka" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zwiedzanie" EntityType="Self.Zwiedzanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BiedniPracownicy" EntityType="Self.BiedniPracownicy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BiedniPracownicy].[IdPracownika] AS [IdPracownika], 
+    [BiedniPracownicy].[IdPlacowki] AS [IdPlacowki], 
+    [BiedniPracownicy].[Imie] AS [Imie], 
+    [BiedniPracownicy].[Nazwisko] AS [Nazwisko], 
+    [BiedniPracownicy].[telefon] AS [telefon], 
+    [BiedniPracownicy].[mail] AS [mail], 
+    [BiedniPracownicy].[pensja] AS [pensja]
+    FROM [dbo].[BiedniPracownicy] AS [BiedniPracownicy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NajczestszePanstwo" EntityType="Self.NajczestszePanstwo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NajczestszePanstwo].[Panstwo] AS [Panstwo], 
+    [NajczestszePanstwo].[najczestszePanstwo] AS [najczestszePanstwo]
+    FROM [dbo].[NajczestszePanstwo] AS [NajczestszePanstwo]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Atrakcja__IdZwie__59063A47" Association="Self.FK__Atrakcja__IdZwie__59063A47">
             <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
             <End Role="Atrakcja" EntitySet="Atrakcja" />
@@ -326,6 +379,7 @@
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Udzial" Relationship="Self.FK__Udzial__IdKlient__4D94879B" FromRole="Klient" ToRole="Udzial" />
           <Property Name="Suma" Type="Int32" />
+          <Property Name="Rabat" Type="Int32" />
         </EntityType>
         <EntityType Name="Placowka">
           <Key>
@@ -567,6 +621,14 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="NajczestszePanstwo" EntityType="BiuroPodrozyCzapeczkaModel.NajczestszePanstwo" />
+          <EntitySet Name="BiedniPracownicy" EntityType="BiuroPodrozyCzapeczkaModel.BiedniPracownicy" />
+          <FunctionImport Name="PracownikRaport" ReturnType="Collection(BiuroPodrozyCzapeczkaModel.PracownikRaport_Result)">
+            <Parameter Name="PlacowkaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="zestawWycieczek" ReturnType="Collection(BiuroPodrozyCzapeczkaModel.zestawWycieczek_Result)">
+            <Parameter Name="SzukaneMiasto" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -601,6 +663,52 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="NajczestszePanstwo">
+          <Key>
+            <PropertyRef Name="Panstwo" />
+          </Key>
+          <Property Name="Panstwo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="najczestszePanstwo1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BiedniPracownicy">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+            <PropertyRef Name="IdPlacowki" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="telefon" />
+            <PropertyRef Name="mail" />
+            <PropertyRef Name="pensja" />
+          </Key>
+          <Property Name="IdPracownika" Type="Int32" Nullable="false" />
+          <Property Name="IdPlacowki" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pensja" Type="Int32" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="PracownikRaport_Result">
+          <Property Type="Int32" Name="IdPracownika" Nullable="false" />
+          <Property Type="Int32" Name="IdPlacowki" Nullable="false" />
+          <Property Type="String" Name="Imie" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="telefon" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="mail" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="pensja" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="zestawWycieczek_Result">
+          <Property Type="Int32" Name="IdWycieczki" Nullable="false" />
+          <Property Type="Int32" Name="IdPlacowki" Nullable="false" />
+          <Property Type="Int32" Name="IdHotelu" Nullable="false" />
+          <Property Type="String" Name="Panstwo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Miasto" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="Datawycieczki" Nullable="true" />
+          <Property Type="Int32" Name="Wydatki" Nullable="true" />
+          <Property Type="Int32" Name="Cena" Nullable="true" />
+          <Property Type="DateTime" Name="KoniecWycieczki" Nullable="true" />
+          <Property Type="DateTime" Name="DataWplaty" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -632,6 +740,7 @@
           <EntitySetMapping Name="Klient">
             <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.Klient">
               <MappingFragment StoreEntitySet="Klient">
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
                 <ScalarProperty Name="Suma" ColumnName="Suma" />
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
@@ -753,6 +862,56 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BiuroPodrozyCzapeczkaModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BiuroPodrozyCzapeczkaModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="NajczestszePanstwo">
+            <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.NajczestszePanstwo">
+              <MappingFragment StoreEntitySet="NajczestszePanstwo">
+                <ScalarProperty Name="najczestszePanstwo1" ColumnName="najczestszePanstwo" />
+                <ScalarProperty Name="Panstwo" ColumnName="Panstwo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BiedniPracownicy">
+            <EntityTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.BiedniPracownicy">
+              <MappingFragment StoreEntitySet="BiedniPracownicy">
+                <ScalarProperty Name="pensja" ColumnName="pensja" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PracownikRaport" FunctionName="BiuroPodrozyCzapeczkaModel.Store.PracownikRaport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.PracownikRaport_Result">
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+                <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="pensja" ColumnName="pensja" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="zestawWycieczek" FunctionName="BiuroPodrozyCzapeczkaModel.Store.zestawWycieczek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiuroPodrozyCzapeczkaModel.zestawWycieczek_Result">
+                <ScalarProperty Name="IdWycieczki" ColumnName="IdWycieczki" />
+                <ScalarProperty Name="IdPlacowki" ColumnName="IdPlacowki" />
+                <ScalarProperty Name="IdHotelu" ColumnName="IdHotelu" />
+                <ScalarProperty Name="Panstwo" ColumnName="Panstwo" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Datawycieczki" ColumnName="Datawycieczki" />
+                <ScalarProperty Name="Wydatki" ColumnName="Wydatki" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="KoniecWycieczki" ColumnName="KoniecWycieczki" />
+                <ScalarProperty Name="DataWplaty" ColumnName="DataWplaty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

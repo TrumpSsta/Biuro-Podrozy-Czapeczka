@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.NajczestszePanstwo>
+
+@{
+    ViewBag.Title = "Najczestsze Panstwa";
+}
+
+<h2>Lista Wycieczek</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Panstwo)
+        </th>
+       
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Panstwo)
+            </td>
+          
+            <td>
+                
+
+                
+            </td>
+        </tr>
+    }
+
+</table>
+<p>@Html.ActionLink("Powrot do raportów", "Index", "Raports")</p>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.BiedniPracownicy>
+
+@{
+    ViewBag.Title = "Biedacy";
+}
+
+<h2>Biedni Pracownicy</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPracownika)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pensja)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPracownika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pensja)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+<p>@Html.ActionLink("Powrot do raportów", "Index", "Raports")</p>

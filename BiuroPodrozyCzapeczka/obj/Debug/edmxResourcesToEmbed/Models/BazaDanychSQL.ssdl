@@ -30,6 +30,7 @@
     <Property Name="Mail" Type="varchar" MaxLength="50" />
     <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Suma" Type="int" />
+    <Property Name="Rabat" Type="int" />
   </EntityType>
   <EntityType Name="Placowka">
     <Key>
@@ -111,6 +112,35 @@
     <Property Name="Miasto" Type="varchar" MaxLength="30" />
     <Property Name="CenaZwiedzania" Type="int" />
     <Property Name="DataZwiedzania" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BiuroPodrozyCzapeczka.dbo.BiedniPracownicy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BiedniPracownicy">
+    <Key>
+      <PropertyRef Name="IdPracownika" />
+      <PropertyRef Name="IdPlacowki" />
+      <PropertyRef Name="Imie" />
+      <PropertyRef Name="Nazwisko" />
+      <PropertyRef Name="telefon" />
+      <PropertyRef Name="mail" />
+      <PropertyRef Name="pensja" />
+    </Key>
+    <Property Name="IdPracownika" Type="int" Nullable="false" />
+    <Property Name="IdPlacowki" Type="int" Nullable="false" />
+    <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="telefon" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="mail" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pensja" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BiuroPodrozyCzapeczka.dbo.NajczestszePanstwo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NajczestszePanstwo">
+    <Key>
+      <PropertyRef Name="Panstwo" />
+    </Key>
+    <Property Name="Panstwo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="najczestszePanstwo" Type="int" />
   </EntityType>
   <Association Name="FK__Atrakcja__IdZwie__59063A47">
     <End Role="Zwiedzanie" Type="Self.Zwiedzanie" Multiplicity="0..1" />
@@ -209,6 +239,9 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="PracownikRaport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PlacowkaID" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -239,6 +272,9 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="zestawWycieczek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SzukaneMiasto" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BiuroPodrozyCzapeczkaModelStoreContainer">
     <EntitySet Name="Atrakcja" EntityType="Self.Atrakcja" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
@@ -250,6 +286,23 @@
     <EntitySet Name="Udzial" EntityType="Self.Udzial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Wycieczka" EntityType="Self.Wycieczka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zwiedzanie" EntityType="Self.Zwiedzanie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiedniPracownicy" EntityType="Self.BiedniPracownicy" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BiedniPracownicy].[IdPracownika] AS [IdPracownika], 
+    [BiedniPracownicy].[IdPlacowki] AS [IdPlacowki], 
+    [BiedniPracownicy].[Imie] AS [Imie], 
+    [BiedniPracownicy].[Nazwisko] AS [Nazwisko], 
+    [BiedniPracownicy].[telefon] AS [telefon], 
+    [BiedniPracownicy].[mail] AS [mail], 
+    [BiedniPracownicy].[pensja] AS [pensja]
+    FROM [dbo].[BiedniPracownicy] AS [BiedniPracownicy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NajczestszePanstwo" EntityType="Self.NajczestszePanstwo" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NajczestszePanstwo].[Panstwo] AS [Panstwo], 
+    [NajczestszePanstwo].[najczestszePanstwo] AS [najczestszePanstwo]
+    FROM [dbo].[NajczestszePanstwo] AS [NajczestszePanstwo]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Atrakcja__IdZwie__59063A47" Association="Self.FK__Atrakcja__IdZwie__59063A47">
       <End Role="Zwiedzanie" EntitySet="Zwiedzanie" />
       <End Role="Atrakcja" EntitySet="Atrakcja" />

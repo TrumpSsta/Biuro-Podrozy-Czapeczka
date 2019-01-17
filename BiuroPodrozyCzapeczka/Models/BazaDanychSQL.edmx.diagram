@@ -23,6 +23,8 @@
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Zwiedzani__IdWyc__48CFD27E" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="BiuroPodrozyCzapeczkaModel.FK__Atrakcja__IdZwie__59063A47" />
+        <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.NajczestszePanstwo" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BiuroPodrozyCzapeczkaModel.BiedniPracownicy" Width="1.5" PointX="8.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

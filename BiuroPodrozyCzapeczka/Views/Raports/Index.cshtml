@@ -1,9 +1,7 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+
+
 
 <html>
 <head>
@@ -12,7 +10,13 @@
 </head>
 <body>
     <div>
-        @Html.ActionLink("Miasta w których istnieją hotele, placówki i odbywają się zwiedzania", "Miasta", "Hotele") <br />
+        @Html.ActionLink("Wycieczki w których liczba osób w rezerwacji była mniejsza niż wielkość pokoju.", "Wycieczki_raport", "Wycieczkas") <br />
+    </div>
+    <div>
+        @Html.ActionLink("Najczęściej odwiedzane państwo w ostatnim miesiącu.", "NajczestszePanstwa", "Wycieczkas") <br />
+    </div>
+    <div>
+        @Html.ActionLink("Wszyscy pracownicy, którzy przez miesiąc nie są w stanie zarobić na średnią wycieczke.", "Biedacy", "Pracowniks") <br />
     </div>
 </body>
 </html>
