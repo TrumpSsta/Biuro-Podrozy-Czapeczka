@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BiuroPodrozyCzapeczka.Models;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace BiuroPodrozyCzapeczka.Controllers
 {
@@ -73,6 +75,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
             {
                 return HttpNotFound();
             }
+           
             ViewBag.IdPlacowki = new SelectList(db.Placowka, "IdPlacowki", "Wojewodztwo", pracownik.IdPlacowki);
             return View(pracownik);
         }

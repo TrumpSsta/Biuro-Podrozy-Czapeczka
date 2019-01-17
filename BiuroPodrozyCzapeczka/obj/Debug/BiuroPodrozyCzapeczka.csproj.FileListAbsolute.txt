@@ -162,3 +162,15 @@ C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapecz
 C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\obj\Debug\BiuroPodrozyCzapeczka.csprojResolveAssemblyReference.cache
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\DnsClient.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Bson.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.Core.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.Legacy.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\System.Buffers.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\DnsClient.xml
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Bson.xml
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.xml
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.Core.xml
+C:\Users\komp\Source\Repos\TrumpSsta\Biuro-Podrozy-Czapeczka\BiuroPodrozyCzapeczka\bin\MongoDB.Driver.Legacy.xml

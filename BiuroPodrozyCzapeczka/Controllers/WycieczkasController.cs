@@ -79,7 +79,43 @@ namespace BiuroPodrozyCzapeczka.Controllers
             ViewBag.IdPlacowki = new SelectList(db.Placowka, "IdPlacowki", "Wojewodztwo", wycieczka.IdPlacowki);
             return View(wycieczka);
         }
+        public ActionResult Wycieczki_Raport()
+        {
+            var wycieczka = (from u in db.Udzial
+                             join w in db.Wycieczka
+                                        on u.IdWycieczki equals w.IdWycieczki
+                             join h in db.Hotel
+                                        on w.IdHotelu equals h.IdHotelu
+                             join p in db.Pokoj
+                                        on h.IdHotelu equals p.IdHotelu
+                             where u.IloscOsob < p.Liczba
+                             select new
+                             {
+                                   id =  w.IdWycieczki, 
+                                  nh= h.NazwaHotelu, 
+                                  idp= w.Panstwo,
+                                  c=w.Cena
+                                 
+    }).ToList();
 
+            var model = new List<WycieczkaHotel>();
+            foreach (var element in wycieczka)
+            {
+             
+                    model.Add(new WycieczkaHotel()
+                    {
+                    IdWycieczki = element.id,
+                        NazwaHotelu = element.nh,
+                        Panstwo = element.idp,
+                        Cena= element.c
+
+                    });
+                
+            }
+
+            
+            return View(model);
+        }
         // POST: Wycieczkas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

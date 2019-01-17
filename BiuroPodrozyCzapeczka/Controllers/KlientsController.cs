@@ -7,16 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BiuroPodrozyCzapeczka.Models;
+using BiuroPodrozyCzapeczka.App_Start;
 
 namespace BiuroPodrozyCzapeczka.Controllers
 {
     public class KlientsController : Controller
     {
         private Czapeczka db = new Czapeczka();
-
+        MongoContext mongolo = new MongoContext();
+        
         // GET: Klients
         public ActionResult Index()
-        {   
+        {
+            
             return View(db.Klient.ToList());
         }
 
@@ -34,6 +37,7 @@ namespace BiuroPodrozyCzapeczka.Controllers
             }
             return View(klient);
         }
+
         public ActionResult AdvencedDetails(int? id )
         {
             if (id == null)
@@ -101,7 +105,9 @@ namespace BiuroPodrozyCzapeczka.Controllers
                     if (e.InnerException == null)
                     { msg = "Zle dane"; }
                     else
-                    { msg = e.InnerException.InnerException.Message; }
+                    { msg = e.InnerException.InnerException.Message;
+                        mongolo.Mongos("Create klient",e.StackTrace, e.InnerException.InnerException.Message, DateTime.Now);
+                    }
                     ViewBag.Exception = msg;
                     return View(klient);
                 }

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BiuroPodrozyCzapeczka.Models.WycieczkaHotel>
+
+@{
+    ViewBag.Title = "Lista Wycieczek";
+}
+
+<h2>Lista Wycieczek</h2>
+<table class="table">
+    <tr>
+        <th>
+            Szczegóły
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.IdWycieczki
+            </td>
+            <td>
+                @item.Cena
+            </td>
+            <td>
+                @item.NazwaHotelu
+            </td>
+            <td>
+                @item.Panstwo
+            </td>
+
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Powrot do raportów", "Raports", "Index")</p>
+</body>
+</html>

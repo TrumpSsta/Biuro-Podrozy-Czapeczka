@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Miasta";
+}
+
+<h2>Miasta</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <h1>Miasta w których znajdują się hotele, placówki i odbywają się zwiedzania</h1>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                Nazwa gatunku
+            </th>
+            <th>
+                Liczba
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in ViewBag.Top3Gatunek)
+        {
+            <tr>
+                <td>
+                    @item.Item1.Nazwa
+                </td>
+                <td>
+                    @item.Item2
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <p>@Html.ActionLink("Back to Summary List", "Summary", "Home")</p>
+</body>
+</html>

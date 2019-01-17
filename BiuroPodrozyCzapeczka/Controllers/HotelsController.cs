@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BiuroPodrozyCzapeczka.Models;
+using System.Activities.Expressions;
 
 namespace BiuroPodrozyCzapeczka.Controllers
 {
@@ -54,7 +55,6 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(hotel);
         }
 
@@ -71,6 +71,25 @@ namespace BiuroPodrozyCzapeczka.Controllers
                 return HttpNotFound();
             }
             return View(hotel);
+        }
+        public ActionResult Miasta()
+        {
+            var miastka = from w in db.Wycieczka
+                          join u in db.Udzial on w.IdWycieczki equals u.IdWycieczki
+                          select w.IdWycieczki;
+
+            var list = new List<int>();
+            foreach (var element in miastka)
+            {
+                
+
+                    list.Add(element);
+                
+            }
+
+
+            ViewBag.Top3Gatunek = list;
+            return View();
         }
 
         // POST: Hotels/Edit/5
